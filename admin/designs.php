@@ -17,56 +17,7 @@ $result = $conn->query("SELECT * FROM mehendi_designs");
     <title>Mehendi Designs</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/style.css">
-    <style>
-        body {
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #343a40;
-        }
-
-        .design-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .design-card {
-            width: 300px;
-            text-align: center;
-            background-color: #fff; 
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .design-card:hover {
-           transform: scale(1.05);
-        }
-
-        .design-card img {
-            width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .design-card h3 {
-            margin-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-        .design-card {
-        width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/design.css">
 </head>
 <body>
     <h1>Mehendi Designs</h1>
