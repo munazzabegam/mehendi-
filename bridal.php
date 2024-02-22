@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 include 'includes/db.php';
 
 
-$result = $conn->query("SELECT * FROM mehendi_designs");
+$result = $conn->query("SELECT * FROM bridal_designs");
 ?>
 
 <!DOCTYPE html>
@@ -14,19 +14,19 @@ $result = $conn->query("SELECT * FROM mehendi_designs");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galary</title>
+    <title>Bridal Designs</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/design.css">
 </head>
 <body>
-    <h1>Galary</h1>
+    <h1>Bridal Designs</h1>
 
    
     <div class="design-container">
         <?php
         while($row = $result->fetch_assoc()) {
             echo "<div class='design-card'>";
-            echo "<img src='./uploads/{$row['image_path']}' alt='{$row['design_name']}'>";
+            echo "<img src='./bridal-uploads/{$row['image_path']}' alt='{$row['design_name']}'>";
             echo "<h3>{$row['design_name']}</h3>";
             echo "</div>";
         }

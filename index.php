@@ -1,5 +1,5 @@
 <?php
-include("./admin/config.php");
+include("./includes/db.php");
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +87,7 @@ include("./admin/config.php");
   <div class="card-body">
     <h5 class="card-title">Front Hand</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="front-hand.php" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 
@@ -96,7 +96,7 @@ include("./admin/config.php");
   <div class="card-body">
     <h5 class="card-title">Back Hand</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="back-hand.php" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 
@@ -105,7 +105,7 @@ include("./admin/config.php");
   <div class="card-body">
     <h5 class="card-title">Leg</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="leg.php" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 
@@ -114,7 +114,7 @@ include("./admin/config.php");
   <div class="card-body">
     <h5 class="card-title">Bridal Designs</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="bridal.php" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
   </div>
