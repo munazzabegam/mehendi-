@@ -1,5 +1,5 @@
 <?php
-include("./admin/config.php");
+include("./includes/db.php");
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +88,16 @@ include("./admin/config.php");
   <div class="card" style="width: 18rem;">
   <img src="../assets/images/slide1.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
+    <h5 class="card-title">Front Hand</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="front/front.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img src="../assets/images/slide1.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Back Hand</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
@@ -97,7 +106,7 @@ include("./admin/config.php");
 <div class="card" style="width: 18rem;">
   <img src="../assets/images/slide1.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
+    <h5 class="card-title">Leg</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
@@ -106,16 +115,7 @@ include("./admin/config.php");
 <div class="card" style="width: 18rem;">
   <img src="../assets/images/slide1.jpg" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-<div class="card" style="width: 18rem;">
-  <img src="../assets/images/slide1.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
+    <h5 class="card-title">Bridal Designs</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
@@ -140,8 +140,8 @@ include("./admin/config.php");
       <div class="col-md-6">
         <div class="social-icons text-md-end">
         <ul class="social-links">
-          <li><a href=" http://wa.me/+918197458962"><i class="fab fa-whatsapp"></i></a></li>
-          <li><a href="https://www.instagram.com/_.sh_eh_za_di._/"><i class="fab fa-instagram"></i></a></li>
+          <li><a href=""><i class="fab fa-whatsapp"></i></a></li>
+          <li><a href="https://www.instagram.com/munxzz._/"><i class="fab fa-instagram"></i></a></li>
           <li><a href="http://github.com/munazzabegam"><i class="fab fa-github"></i></a></li>
           <li><a href="http://www.linkedin.com/in/munazza-begam"><i class="fab fa-linkedin-square"></i></a></li>
         </ul>
