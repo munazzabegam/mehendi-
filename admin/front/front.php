@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 
 include '../../includes/db.php';
 
-
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -28,14 +27,15 @@ $result = $conn->query("SELECT * FROM Front_hand");
     <h1>Front Designs</h1>
 
     <div class="add">
-        <a href="../admin/front/add_front.php" class="btn btn-primary">Add a New Front Design</a>
+        <a href="../../admin/front/add.php" class="btn btn-primary">Add a New Front Design</a>
     </div>
 
     <div class="design-container">
         <?php
         while($row = $result->fetch_assoc()) {
             echo "<div class='design-card'>";
-            echo "<img src='../front_img/{$row['image_path']}' alt='{$row['design_name']}'>";
+            // Adjust the image source path to reflect the correct directory structure
+            echo "<img src='/front_img/{$row['image_path']}' alt='{$row['design_name']}'>";
             echo "<h3>{$row['design_name']}</h3>";
             echo "</div>";
         }

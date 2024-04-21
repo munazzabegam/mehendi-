@@ -3,49 +3,47 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include 'includes/db.php';
-
+include '../../includes/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $designName = $_POST["design_name"];
 
-    
     $targetDir = "../front_img/";
-    $targetFile =  basename($_FILES["design_image"]["name"]);
+    $targetFile = basename($_FILES["design_image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-    
-    if (file_exists($targetFile)) {
+    // Check if file already exists
+    if (file_exists($targetDir . $targetFile)) {
         echo "Sorry, file already exists.";
         $uploadOk = 0;
     }
 
-    
+    // Check file size
     if ($_FILES["design_image"]["size"] > 500000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
 
-    
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+    // Allow only certain file formats
+    if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
         echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
 
-    
+    // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
     } else {
-        
-        if (move_uploaded_file($_FILES["design_image"]["tmp_name"],"../front_img/". $targetFile)) {
-            
+        // Try to move the uploaded file to the destination directory
+        if (move_uploaded_file($_FILES["design_image"]["tmp_name"], $targetDir . $targetFile)) {
             $imagePath = $targetFile;
 
+            // Prepare and execute SQL query to insert data into database
             $sql = "INSERT INTO mehendi_designs (design_name, image_path) VALUES ('$designName', '$imagePath')";
             if ($conn->query($sql) === TRUE) {
                 echo "New design added successfully.";
-                header("Location: ../front.php");
+                header("Location: ../front.php"); // Redirect to the front page
                 exit();
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
@@ -55,8 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,8 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Add Front-hand Design</title>
     <link rel="stylesheet" href="../assets/style.css">
     <style>
-
-        h1 {
+                h1 {
             text-align: center;
 
         }
@@ -121,20 +118,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: 600;
         }
 
-
-
     </style>
 </head>
 <body>
     <h1>Add Front-hand Design</h1>
     <div class="add-design">
-    <form action="" method="post" enctype="multipart/form-data">
-        <label for="design_name">Design Name:</label>
-        <input type="text" id="design_name" name="design_name" required>
-        <label for="design_image">Design Image:</label>
-        <input type="file" id="design_image" name="design_image" accept="image/*" required>
-        <button type="submit">Add Front Design</button>
-    </form>
+        <form action="" method="post" enctype="multipart/form-data">
+            <label for="design_name">Design Name:</label>
+            <input type="text" id="design_name" name="design_name" required>
+            <label for="design_image">Design Image:</label>
+            <input type="file" id="design_image" name="design_image" accept="image/*" required>
+            <button type="submit">Add Front Design</button>
+        </form>
     </div>
 </body>
 </html>
