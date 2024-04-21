@@ -27,7 +27,7 @@ $result = $conn->query("SELECT * FROM Front_hand");
     <h1>Front Designs</h1>
 
     <div class="add">
-        <a href="../../admin/front/add.php" class="btn btn-primary">Add a New Front Design</a>
+        <a href="../../admin/front/add_front.php" class="btn btn-primary">Add a New Front Design</a>
     </div>
 
     <div class="design-container">
