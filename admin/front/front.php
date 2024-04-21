@@ -34,7 +34,6 @@ $result = $conn->query("SELECT * FROM Front_hand");
         <?php
         while($row = $result->fetch_assoc()) {
             echo "<div class='design-card'>";
-            // Adjust the image source path to reflect the correct directory structure
             echo "<img src='/front_img/{$row['image_path']}' alt='{$row['design_name']}'>";
             echo "<h3>{$row['design_name']}</h3>";
             echo "</div>";

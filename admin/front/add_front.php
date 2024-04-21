@@ -13,37 +13,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-    // Check if file already exists
+
     if (file_exists($targetDir . $targetFile)) {
         echo "Sorry, file already exists.";
         $uploadOk = 0;
     }
 
-    // Check file size
+
     if ($_FILES["design_image"]["size"] > 500000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
 
-    // Allow only certain file formats
+
     if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
         echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
 
-    // Check if $uploadOk is set to 0 by an error
+
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
     } else {
-        // Try to move the uploaded file to the destination directory
+
         if (move_uploaded_file($_FILES["design_image"]["tmp_name"], $targetDir . $targetFile)) {
             $imagePath = $targetFile;
 
-            // Prepare and execute SQL query to insert data into database
             $sql = "INSERT INTO mehendi_designs (design_name, image_path) VALUES ('$designName', '$imagePath')";
             if ($conn->query($sql) === TRUE) {
                 echo "New design added successfully.";
-                header("Location: ../front.php"); // Redirect to the front page
+                header("Location: ../front.php");
                 exit();
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
