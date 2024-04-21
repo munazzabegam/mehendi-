@@ -8,7 +8,7 @@ include '../../includes/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $designName = $_POST["design_name"];
 
-    $targetDir = "../front_img/";
+    $targetDir = "/opt/lampp/htdocs/mehendi-/front_img/";
     $targetFile = basename($_FILES["design_image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -36,13 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Sorry, your file was not uploaded.";
     } else {
 
-        if (move_uploaded_file($_FILES["design_image"]["tmp_name"], $targetDir . $targetFile)) {
+        // if (move_uploaded_file($_FILES["design_image"]["tmp_name"],".../uploads/". $targetFile)) {
+    if (move_uploaded_file($_FILES["design_image"]["tmp_name"], "/opt/lampp/htdocs/mehendi-/front_img/" . basename($_FILES["design_image"]["name"]))) {
+
             $imagePath = $targetFile;
 
-            $sql = "INSERT INTO mehendi_designs (design_name, image_path) VALUES ('$designName', '$imagePath')";
+            $sql = "INSERT INTO Front_hand (design_name, image_path) VALUES ('$designName', '$imagePath')";
             if ($conn->query($sql) === TRUE) {
                 echo "New design added successfully.";
-                header("Location: ../front.php");
+                header("Location: ../../admin/front/front.php");
                 exit();
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
