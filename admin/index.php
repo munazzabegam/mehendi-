@@ -14,6 +14,7 @@ include("./includes/db.php");
 
 <body>
 
+
      <!-- navbar  -->
     <section class="bar">
     <nav class="navbar navbar-expand-lg" style="background-color: #2b0505; height: 80px;">
